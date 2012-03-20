@@ -145,6 +145,8 @@ function Viewer(camera)
 
 //-----------------------------OBSŁUGA ZDARZEŃ--------------------------------------//
 
+var tester = getElementById("tester");
+
 function InitEvents(canvas)
 {
 	window.addEventListener('keydown', OnKeyDown, true);
@@ -210,14 +212,14 @@ function OnKeyUp(e)
 //-----------------------------MOUSE EVENTS---------------------------//
 
 //Klasa opisująca stan myszy
-function MouseState() 
+function MouseState()
 {
 	//PROPERTIES
 	this.L_down = false,	//wciśnięty lewy przycisk myszy
 	this.M_down = false,	//wciśnięty środkowy przycisk myszy
 	this.R_down = false,	//wciśnięty prawy przycisk myszy
 	this.X = 0, 			//obecna współrzędna X kursora
-	this.Y = 0, 			//obecna współrzędna Y kursora 
+	this.Y = 0, 			//obecna współrzędna Y kursora
 	this.X_prev = 0, 		//poprzednia współrzędna X kursora
 	this.Y_prev = 0			//poprzednia współrzędna Y kursora
 	//METHODS
@@ -250,7 +252,7 @@ var mouseState = new MouseState();
 function OnMouseButtonDown(e)
 {
 	//kompatybilność z IE
-	if (!e.which && e.button) 
+	if (!e.which && e.button)
 	{
 	    if (e.button & 1) e.which = 1      // Left
 		else if (e.button & 4) e.which = 2 // Middle
@@ -271,7 +273,7 @@ function OnMouseButtonDown(e)
 function OnMouseButtonUp(e)
 {
 	//kompatybilność z IE
-	if (!e.which && e.button) 
+	if (!e.which && e.button)
 	{
 	    if (e.button & 1) e.which = 1      // Left
 		else if (e.button & 4) e.which = 2 // Middle

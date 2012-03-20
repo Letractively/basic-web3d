@@ -1,4 +1,4 @@
-﻿var canvasName = "canvas";
+ var canvasName = "canvas";
 var canvas = document.getElementById(canvasName );
 var aspect = canvas.width/canvas.height;
 InitEvents(canvas);
@@ -21,7 +21,7 @@ SceneJS.createScene({
                     type: "camera",
                     optics: {
                         type: "perspective",
-                        fovy : 30.0,
+                        fovy : 45.0,
                         aspect : aspect,
                         near : 0.01,
                         far : 1000.0

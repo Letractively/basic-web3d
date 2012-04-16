@@ -39,6 +39,7 @@ function UpdeteScene()
 {
 	root.remove("node", "myModel");
 	root.add("node", myModel);
+	$("#labelInfo").css("visibility", "hidden");
 }
 
 function Viewer(scene)

@@ -11,17 +11,22 @@ function OnDeepLinkChange(e)
 		case "#back" : BACK(viewer); break;
 		default : break;
 	}
+	renderRequest = true;
 }
 
+//ustawia tryb renderingu na żądanie
 function OnRenderModeChange(e)
 {
 	renderOnRequest = !renderOnRequest;
 }	
 
 //----------------------MOUSE EVENTS-------------------------//
+var mouseMoved = false;
+
 function OnMouseButtonDown(e)
 {
 	e = e ? e : window.event;
+	mouseMoved = false;
 	
 	viewer.lastX = e.clientX;
     viewer.lastY = e.clientY;
@@ -60,11 +65,22 @@ function OnMouseButtonUp(e)
 		case 2: viewer.move = false; break;		//środkowy
 		case 3: break;							//prawy
 	}
+	
+	if (!mouseMoved)
+	{
+		Pick(e);
+		$("#labelInfo").css("visibility", "visible");
+	}
+	else
+	{
+		$("#labelInfo").css("visibility", "hidden");
+	}
 }
 
 function OnMouseMove(e) 
 {
 	e = e ? e : window.event;
+	mouseMoved = true;
     var posX = e.clientX;
     var posY = e.clientY;
     viewer.Rotate(posX,posY);
@@ -92,14 +108,13 @@ function InitEvents()
 	canvas.addEventListener('mousedown', OnMouseButtonDown, true);
 	canvas.addEventListener('mouseup', OnMouseButtonUp, true);
 	canvas.addEventListener('mousemove', OnMouseMove, true);
-
-	var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel"
-	canvas.addEventListener(mousewheelevt, OnMouseWheel, false);
+	canvas.addEventListener('mousewheel', OnMouseWheel, true);
+	canvas.addEventListener('DOMMouseScroll', OnMouseWheel, true);
 	
 	window.addEventListener('hashchange', OnDeepLinkChange, true);
 	
 	//$(window).bind('hashchange', function() {
-//		OnDeepLinkChange(null);
+	//	OnDeepLinkChange(null);
 	//});
 
 }

@@ -10,7 +10,7 @@
 	<body>
 		<div id="leftColumn">
 			<div id="fps">?</div>
-			<input type="checkbox" onclick="OnRenderModeChange(null)">ROR</input>
+			<input type="checkbox" onclick="OnRenderModeChange(null)" checked="true">ROR</input>
 			
 			<div id="view">
 				<ul >
@@ -36,7 +36,7 @@
 			Additional Info
 		</div>
 		<canvas id="canvas" width="1000" height="600"></canvas>
-		<div id="testConsole"></div>
+		<div id="testConsole" style="float: right"></div>
 		<script type="text/javascript">
 			var scripts = new Array();
 			scripts.push("lib/scenejs.js");
@@ -46,11 +46,7 @@
 			scripts.push("links.js");
 			scripts.push("picking.js");
 			scripts.push("scene.js");
-					
-			
-			//Plik sceny
-			//scripts.push("modele/ford.js");
-			//scripts.push("modele/troll.js");
+
 			scripts.push(model);
 			
 			LoadManyScripts(scripts);

@@ -4,7 +4,7 @@ var scene;
 var root;
 var viewer;
 
-var renderOnRequest = false;	//włącza / wyłącza tryb renderingu na żądanie
+var renderOnRequest = true;	//włącza / wyłącza tryb renderingu na żądanie
 var renderRequest = true;		//flaga mówiąca czy należy ponownie wyrenderować scenę
 
 function LoadScene()
@@ -35,11 +35,12 @@ function LoadScene()
 	});
 }
 
-function UpdeteScene()
+function UpdateScene()
 {
 	root.remove("node", "myModel");
 	root.add("node", myModel);
 	$("#labelInfo").css("visibility", "hidden");
+	SetAddress();
 }
 
 function Viewer(scene)
@@ -115,12 +116,17 @@ function Viewer(scene)
 	this.ToString = function()
 	{
 		var text = "<pre>";
+		text += "VIEWER STATE:\n";
 		text += "scale: " + this.scale +"\n";
 		text += "yaw: " + this.yaw +"\n";
+		text += "pitch: " + this.pitch +"\n";
+		text += "x: " + this.x +"\n";
+		text += "y: " + this.y +"\n";
+		text += "lastX: " + this.lastX +"\n";
+		text += "lastY: " + this.lastY +"\n";
 		text += "</pre>";
 		return text;
 	}
-
 }
 
 //--------------------------------STATISTICS------------------------//

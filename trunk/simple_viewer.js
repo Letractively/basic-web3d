@@ -15,6 +15,7 @@ function LoadScene()
 	viewer = new Viewer(scene);
 	
 	InitEvents();
+	OnDeepLinkChange(null);
 	
 	renderedFrames = 0;
 	setInterval("UpdateFPS()", 1000);

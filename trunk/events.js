@@ -1,4 +1,11 @@
-﻿function OnMouseButtonDown(e)
+﻿//----------------------MENU EVENTS--------------------------//
+function OnDeepLinkChange(e)
+{
+	alert(window.location.hash);
+}	
+
+//----------------------MOUSE EVENTS-------------------------//
+function OnMouseButtonDown(e)
 {
 	e = e ? e : window.event;
 	
@@ -74,4 +81,9 @@ function InitEvents()
 
 	var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel"
 	canvas.addEventListener(mousewheelevt, OnMouseWheel, false);
+	
+	$(window).bind('hashchange', function() {
+		OnDeepLinkChange(null);
+	});
+
 }

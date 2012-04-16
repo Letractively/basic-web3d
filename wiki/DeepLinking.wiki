@@ -1,0 +1,24 @@
+= Deep Linking =
+
+This page describes simple way of creating deep links inside javascript code. 
+
+
+== Hooking up event ==
+
+First we have to add the EventListener to our code. It can be done on two different methods. Usung javascript function or jQuery
+
+=== JavaScript ===
+
+{{{
+window.addEventListener('hashchange', OnDeepLinkChange, true);
+}}}
+
+where OnDeepLinkChange is our callback function (described below)
+
+=== jQuery ===
+
+{{{
+$(window).bind('hashchange', function() {
+  OnDeepLinkChange(null);
+});
+}}}

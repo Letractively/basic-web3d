@@ -4,6 +4,9 @@ var scene;
 var root;
 var viewer;
 
+var renderOnRequest = false;	//włącza / wyłącza tryb renderingu na żądanie
+var renderRequest = true;		//flaga mówiąca czy należy ponownie wyrenderować scenę
+
 function LoadScene()
 {
 	var canvasName = "canvas";
@@ -24,15 +27,16 @@ function LoadScene()
 	scene.start({
 		idleFunc: function() 
 		{
-			viewer.Update();
-			renderedFrames++;
+			if(!renderOnRequest)
+				viewer.Update();
+			else if(renderRequest)
+				viewer.Update();
 		}
 	});
 }
 
 function UpdeteScene()
 {
-	
 	root.remove("node", "myModel");
 	root.add("node", myModel);
 }
@@ -58,6 +62,8 @@ function Viewer(scene)
 	this.Zoom = function(zoom)
 	{
 		this.scale = this.scale * zoom;
+		
+		renderRequest = true;
 	}
 	
 	this.Rotate = function(posX, posY)
@@ -69,6 +75,8 @@ function Viewer(scene)
 
 			this.lastX = posX;
 			this.lastY = posY;
+			
+			renderRequest = true;
 		}
 	}
 	
@@ -81,6 +89,8 @@ function Viewer(scene)
 			
 			this.lastX = posX;
 			this.lastY = posY;
+			
+			renderRequest = true;
 		}
 	}
 
@@ -93,10 +103,12 @@ function Viewer(scene)
 	//Obrót
 		this.pitchNode.set("angle", this.pitch);
 		this.yawNode.set("angle", this.yaw);
-	//Przesunięcie
-		
+	//Przesunięcie	
 		this.cameraNode.set("eye", {x:this.x, y:this.y, z:100});
 		this.cameraNode.set("look", {x:this.x, y:this.y, z:0});
+		
+		renderedFrames++;
+		renderRequest = false;
 	}
 
 }

@@ -11,6 +11,11 @@ function OnDeepLinkChange(e)
 		case "#back" : BACK(viewer); break;
 		default : break;
 	}
+}
+
+function OnRenderModeChange(e)
+{
+	renderOnRequest = !renderOnRequest;
 }	
 
 //----------------------MOUSE EVENTS-------------------------//

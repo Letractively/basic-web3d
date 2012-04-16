@@ -1,6 +1,6 @@
 ﻿//----------------------MENU EVENTS--------------------------//
 function OnDeepLinkChange(e)
-{
+{;
 	switch(window.location.hash)
 	{
 		case "#top" : TOP(viewer); break;
@@ -9,7 +9,7 @@ function OnDeepLinkChange(e)
 		case "#right" : RIGHT(viewer); break;
 		case "#front" : FRONT(viewer); break;
 		case "#back" : BACK(viewer); break;
-		default : break;
+		default : ParseAddress(); break;
 	}
 	renderRequest = true;
 }
@@ -75,6 +75,8 @@ function OnMouseButtonUp(e)
 	{
 		$("#labelInfo").css("visibility", "hidden");
 	}
+	
+	SetAddress();
 }
 
 function OnMouseMove(e) 

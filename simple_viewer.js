@@ -111,6 +111,15 @@ function Viewer(scene)
 		renderedFrames++;
 		renderRequest = false;
 	}
+	
+	this.ToString = function()
+	{
+		var text = "<pre>";
+		text += "scale: " + this.scale +"\n";
+		text += "yaw: " + this.yaw +"\n";
+		text += "</pre>";
+		return text;
+	}
 
 }
 

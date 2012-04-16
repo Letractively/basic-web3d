@@ -8,9 +8,12 @@
 		</script>
 	</head>
 	<body>
-		<div id="fps">FPS</div>
+		<input type="checkbox" onclick="OnRenderModeChange(null)">Render On Request</input>
+		<br>
+		<span>FPS: </span><span id="fps">?</span>
+		
 
-		<div id="View">
+		<div id="view">
 			<ul >
 				<li><a href="#top">Top</a></li>
 				<li><a href="#bottom">Bottom</a></li>
@@ -20,13 +23,16 @@
 				<li><a href="#back">Back</a></li>
 			</ul>
 		</div>
-		<div id="Model">
+		<div id="model">
 			<ul >
 				<li><a href="#" onclick="ChangeScene('modele/ford.js')">Ford</a></li>
 				<li><a href="#" onclick="ChangeScene('modele/bmw.js')">BMW</a></li>
+				<li><a href="#" onclick="ChangeScene('modele/test.js')">Test</a></li>
 			</ul>
 		</div>
-		
+		<div id="info">
+			Additional Info
+		</div>
 		<canvas id="canvas" width="800" height="600" style="border: solid black 1px"></canvas>
 		
 		<script type="text/javascript">

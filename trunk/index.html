@@ -2,18 +2,23 @@
 	<head>
 		<title></title>
 		<script type="text/javascript" src="loader.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
 		<div id="fps">FPS</div>
 
 		<div id="menu">
-			<ul>
+			<ul >
 				<li><a href="#top">Top</a></li>
+				<li><a href="#bottom">Bottom</a></li>
 				<li><a href="#left">Left</a></li>
+				<li><a href="#right">Right</a></li>
+				<li><a href="#front">Front</a></li>
+				<li><a href="#back">Back</a></li>
 			</ul>
 		</div>
 		
-		<canvas id="canvas" width="1200" height="700" style="border: solid black 1px"></canvas>
+		<canvas id="canvas" width="800" height="600" style="border: solid black 1px"></canvas>
 		
 		<script type="text/javascript">
 			var scripts = new Array();
@@ -21,12 +26,13 @@
 			scripts.push("lib/jquery-1.7.2.min.js");
 			scripts.push("simple_viewer.js");
 			scripts.push("events.js");
+			scripts.push("links.js");
 			scripts.push("scene.js");
 			
 			//Plik sceny
-			scripts.push("modele/ford.js");
+			//scripts.push("modele/ford.js");
 			//scripts.push("modele/troll.js");
-			//scripts.push("modele/bmw.js");
+			scripts.push("modele/bmw.js");
 			
 			LoadManyScripts(scripts);
 		</script>

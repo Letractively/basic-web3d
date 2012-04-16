@@ -1,7 +1,16 @@
 ﻿//----------------------MENU EVENTS--------------------------//
 function OnDeepLinkChange(e)
 {
-	alert(window.location.hash);
+	switch(window.location.hash)
+	{
+		case "#top" : TOP(viewer); break;
+		case "#bottom" : BOTTOM(viewer); break;
+		case "#left" : LEFT(viewer); break;
+		case "#right" : RIGHT(viewer); break;
+		case "#front" : FRONT(viewer); break;
+		case "#back" : BACK(viewer); break;
+		default : break;
+	}
 }	
 
 //----------------------MOUSE EVENTS-------------------------//

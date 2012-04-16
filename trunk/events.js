@@ -103,6 +103,8 @@ function OnMouseWheel(e)
 		viewer.Zoom(0.9);
 	else if(delta > 0)
 		viewer.Zoom(1.1);
+		
+	SetAddress();
 }
 
 function InitEvents()

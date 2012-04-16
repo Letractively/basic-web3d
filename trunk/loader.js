@@ -45,5 +45,5 @@ function OnScriptLoaded()
 function OnSceneLoaded()
 {	
 	loaded = 0;
-	UpdeteScene();
+	UpdateScene();
 }

@@ -1,0 +1,26 @@
+﻿<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="loader.js"></script>
+	</head>
+	<body>
+		<div id="fps">FPS</div>
+		
+		<canvas id="canvas" width="1200" height="700" style="border: solid black 1px"></canvas>
+		
+		<script type="text/javascript">
+			var scripts = new Array();
+			scripts.push("lib/scenejs.js");
+			scripts.push("simple_viewer.js");
+			scripts.push("events.js");
+			scripts.push("scene.js");
+			
+			//Plik sceny
+			scripts.push("modele/ford.js");
+			//scripts.push("modele/troll.js");
+			//scripts.push("modele/bmw.js");
+			
+			LoadManyScripts(scripts);
+		</script>
+	</body>
+</html>

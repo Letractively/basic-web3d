@@ -91,8 +91,10 @@ function InitEvents()
 	var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel"
 	canvas.addEventListener(mousewheelevt, OnMouseWheel, false);
 	
-	$(window).bind('hashchange', function() {
-		OnDeepLinkChange(null);
-	});
+	window.addEventListener('hashchange', OnDeepLinkChange, true);
+	
+	//$(window).bind('hashchange', function() {
+//		OnDeepLinkChange(null);
+	//});
 
 }

@@ -1,17 +1,21 @@
 ﻿var loaded = 0;
+var toLoad = 0;
 
-function SetScene(url)
+function ChangeScene(url)
 {
-	scripts.push(url);
+	toLoad = 1;
+	myModel = null;
+	LoadScript(url, OnSceneLoaded);
 }
 
 function LoadManyScripts(scripts)
 {
-	for(var i=0; i<scripts.length; i++)
-		LoadScript(scripts[i]);
+	toLoad = scripts.length;
+	for(var i=0; i<toLoad; i++)
+		LoadScript(scripts[i], OnScriptLoaded);
 }
 
-function LoadScript(url)
+function LoadScript(url, callback)
 {
     // adding the script tag to the head as suggested before
    var head = document.getElementsByTagName('head')[0];
@@ -21,19 +25,25 @@ function LoadScript(url)
 
    // then bind the event to the callback function 
    // there are several events for cross browser compatibility
-   script.onreadystatechange = OnLoaded;
-   script.onload = OnLoaded;
+   script.onreadystatechange = callback;
+   script.onload = callback;
 
    // fire the loading
    head.appendChild(script);
 }
 
-function OnLoaded()
+function OnScriptLoaded()
 {
 	loaded++;
-	if(loaded == scripts.length)
+	if(loaded == toLoad)
 	{
 		LoadScene();	
 		loaded = 0;
 	}
+}
+
+function OnSceneLoaded()
+{	
+	loaded = 0;
+	UpdeteScene();
 }

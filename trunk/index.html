@@ -8,32 +8,34 @@
 		</script>
 	</head>
 	<body>
-		<input type="checkbox" onclick="OnRenderModeChange(null)">Render On Request</input>
-		<br>
-		<span>FPS: </span><span id="fps">?</span>
+		<div id="leftColumn">
+			<div id="fps">?</div>
+			<input type="checkbox" onclick="OnRenderModeChange(null)">ROR</input>
+			
+			<div id="view">
+				<ul >
+					<li><a href="#top">Top</a></li>
+					<li><a href="#bottom">Bottom</a></li>
+					<li><a href="#left">Left</a></li>
+					<li><a href="#right">Right</a></li>
+					<li><a href="#front">Front</a></li>
+					<li><a href="#back">Back</a></li>
+				</ul>
+			</div>
+			<hr>
+			<div id="model">
+				<ul >
+					<li><a href="#" onclick="ChangeScene('modele/ford.js')">Ford</a></li>
+					<li><a href="#" onclick="ChangeScene('modele/bmw.js')">BMW</a></li>
+					<li><a href="#" onclick="ChangeScene('modele/test.js')">Test</a></li>
+				</ul>
+			</div>
+		</div>
 		
-
-		<div id="view">
-			<ul >
-				<li><a href="#top">Top</a></li>
-				<li><a href="#bottom">Bottom</a></li>
-				<li><a href="#left">Left</a></li>
-				<li><a href="#right">Right</a></li>
-				<li><a href="#front">Front</a></li>
-				<li><a href="#back">Back</a></li>
-			</ul>
-		</div>
-		<div id="model">
-			<ul >
-				<li><a href="#" onclick="ChangeScene('modele/ford.js')">Ford</a></li>
-				<li><a href="#" onclick="ChangeScene('modele/bmw.js')">BMW</a></li>
-				<li><a href="#" onclick="ChangeScene('modele/test.js')">Test</a></li>
-			</ul>
-		</div>
 		<div id="labelInfo">
 			Additional Info
 		</div>
-		<canvas id="canvas" width="800" height="600" style="border: solid black 1px"></canvas>
+		<canvas id="canvas" width="1000" height="600"></canvas>
 		
 		<script type="text/javascript">
 			var scripts = new Array();

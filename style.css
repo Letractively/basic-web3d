@@ -1,7 +1,39 @@
 ul li
 {
-	display: inline;
+	display: block;
+	
+}
+
+ul
+{
 	margin: 10px;
+}
+
+#leftColumn
+{
+	width: 120px;
+	float: left;
+}
+
+#fps:before
+{
+	content: "FPS: ";
+	font-size: 15px;
+}
+
+#view
+{
+
+}
+
+#model
+{
+
+}
+
+#canvas
+{
+	border: solid black 1px;
 }
 
 #labelInfo 

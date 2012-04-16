@@ -4,7 +4,8 @@ var myModel={
 	type:'node',	// begin--model top node
 	id:'myModel',
 	nodes:[{
-		type:'node',
+		type:'name',
+		name: "<b>BMW</b><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		nodes:[{
 			type:'geometry',	// begin--geometry node
 			positions:[

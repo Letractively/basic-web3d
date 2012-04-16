@@ -4,7 +4,8 @@ var myModel={
 	type:'node',	// begin--model top node
 	id:'myModel',
 	nodes:[{
-		type:'node',
+		type:'name',
+		name: 'Ford',
 		nodes:[{
 			type:'geometry',	// begin--geometry node
 			positions:[

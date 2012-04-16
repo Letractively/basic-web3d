@@ -3,11 +3,14 @@
 		<title></title>
 		<script type="text/javascript" src="loader.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript">
+			var model = "modele/bmw.js";
+		</script>
 	</head>
 	<body>
 		<div id="fps">FPS</div>
 
-		<div id="menu">
+		<div id="View">
 			<ul >
 				<li><a href="#top">Top</a></li>
 				<li><a href="#bottom">Bottom</a></li>
@@ -15,6 +18,12 @@
 				<li><a href="#right">Right</a></li>
 				<li><a href="#front">Front</a></li>
 				<li><a href="#back">Back</a></li>
+			</ul>
+		</div>
+		<div id="Model">
+			<ul >
+				<li><a href="#" onclick="ChangeScene('modele/ford.js')">Ford</a></li>
+				<li><a href="#" onclick="ChangeScene('modele/bmw.js')">BMW</a></li>
 			</ul>
 		</div>
 		
@@ -28,11 +37,12 @@
 			scripts.push("events.js");
 			scripts.push("links.js");
 			scripts.push("scene.js");
+					
 			
 			//Plik sceny
 			//scripts.push("modele/ford.js");
 			//scripts.push("modele/troll.js");
-			scripts.push("modele/bmw.js");
+			scripts.push(model);
 			
 			LoadManyScripts(scripts);
 		</script>

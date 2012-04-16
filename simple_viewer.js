@@ -12,6 +12,7 @@ function LoadScene()
 	scene = SceneJS.scene(sceneName);
 	root = scene.findNode("geometryRoot");
 	root.add("node", myModel);
+	
 	viewer = new Viewer(scene);
 	
 	InitEvents();
@@ -27,6 +28,13 @@ function LoadScene()
 			renderedFrames++;
 		}
 	});
+}
+
+function UpdeteScene()
+{
+	
+	root.remove("node", "myModel");
+	root.add("node", myModel);
 }
 
 function Viewer(scene)

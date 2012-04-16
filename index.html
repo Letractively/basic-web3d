@@ -5,12 +5,20 @@
 	</head>
 	<body>
 		<div id="fps">FPS</div>
+
+		<div id="menu">
+			<ul>
+				<li><a href="#top">Top</a></li>
+				<li><a href="#left">Left</a></li>
+			</ul>
+		</div>
 		
 		<canvas id="canvas" width="1200" height="700" style="border: solid black 1px"></canvas>
 		
 		<script type="text/javascript">
 			var scripts = new Array();
 			scripts.push("lib/scenejs.js");
+			scripts.push("lib/jquery-1.7.2.min.js");
 			scripts.push("simple_viewer.js");
 			scripts.push("events.js");
 			scripts.push("scene.js");

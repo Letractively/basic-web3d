@@ -4,7 +4,7 @@ var paramCount = 7;
 function SetAddress()
 {
 	var link = "";
-	link += viewer.scale.toFixed(2)+separator;
+	link += viewer.scale.toFixed(4)+separator;
 	link += viewer.yaw.toFixed(2)+separator;
 	link += viewer.pitch.toFixed(2)+separator;
 	link += viewer.x.toFixed(2)+separator;

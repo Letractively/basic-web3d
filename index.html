@@ -10,6 +10,7 @@
 	<body>
 		<div id="leftColumn">
 			<div id="fps">?</div>
+			<div id="time">?</div>
 			<input type="checkbox" onclick="OnRenderModeChange(null)" checked="true">ROR</input>
 			
 			<div id="view">
@@ -27,7 +28,8 @@
 				<ul >
 					<li><a href="#" onclick="ChangeScene('modele/ford.js')">Ford</a></li>
 					<li><a href="#" onclick="ChangeScene('modele/bmw.js')">BMW</a></li>
-					<li><a href="#" onclick="ChangeScene('modele/test.js')">Test</a></li>
+					<li><a href="#" onclick="ChangeScene('modele/synagoga.js')">Synagoga</a></li>
+					<li><a href="#" onclick="ChangeScene('modele/rektorat.js')">Rektorat</a></li>
 				</ul>
 			</div>
 		</div>
@@ -41,6 +43,7 @@
 			var scripts = new Array();
 			scripts.push("lib/scenejs.js");
 			scripts.push("lib/jquery-1.7.2.min.js");
+			scripts.push("globals.js");
 			scripts.push("simple_viewer.js");
 			scripts.push("events.js");
 			scripts.push("links.js");

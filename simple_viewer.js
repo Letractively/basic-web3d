@@ -1,13 +1,4 @@
-﻿var canvas;
-var renderedFrames;
-var scene;
-var root;
-var viewer;
-
-var renderOnRequest = true;	//włącza / wyłącza tryb renderingu na żądanie
-var renderRequest = true;		//flaga mówiąca czy należy ponownie wyrenderować scenę
-
-function LoadScene()
+﻿function LoadScene()
 {
 	var canvasName = "canvas";
 	var sceneName = CreateScene(canvasName);
@@ -22,15 +13,20 @@ function LoadScene()
 	OnDeepLinkChange(null);
 	
 	renderedFrames = 0;
+	totalRenderTime = 0;
 	setInterval("UpdateFPS()", 1000);
 	
 	scene.start({
 		idleFunc: function() 
 		{
+			var start = new Date();
 			if(!renderOnRequest)
 				viewer.Update();
 			else if(renderRequest)
 				viewer.Update();
+			var stop = new Date();
+			
+			$("#time").html(stop - start);
 		}
 	});
 }

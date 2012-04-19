@@ -21,6 +21,23 @@ ul
 	font-size: 15px;
 }
 
+#verts:before
+{
+	content: "Vertices: ";
+	font-size: 15px;
+}
+
+#triangles
+{
+	visibility: hidden;
+}
+
+#triangles:before
+{
+	content: "Triangles: ";
+	font-size: 15px;
+}
+
 #view
 {
 

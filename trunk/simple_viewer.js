@@ -9,6 +9,7 @@
 	
 	viewer = new Viewer(scene);
 	
+	UpdateModelInfo();
 	InitEvents();
 	OnDeepLinkChange(null);
 	
@@ -19,14 +20,10 @@
 	scene.start({
 		idleFunc: function() 
 		{
-			var start = new Date();
 			if(!renderOnRequest)
 				viewer.Update();
 			else if(renderRequest)
 				viewer.Update();
-			var stop = new Date();
-			
-			$("#time").html(stop - start);
 		}
 	});
 }
@@ -37,6 +34,8 @@ function UpdateScene()
 	root.add("node", myModel);
 	$("#labelInfo").css("visibility", "hidden");
 	SetAddress();
+	
+	UpdateModelInfo();
 }
 
 function Viewer(scene)
@@ -130,6 +129,7 @@ function Viewer(scene)
 function UpdateFPS()
 {
 	document.getElementById("fps").innerHTML = renderedFrames;
+	$("#"+div_time).html(lastFrameRenderTime);
 	renderedFrames = 0;
 }
 

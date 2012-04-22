@@ -1,5 +1,5 @@
 ﻿var separator = "|";
-var paramCount = 7;
+var paramCount = 5;
 
 function SetAddress()
 {
@@ -8,9 +8,9 @@ function SetAddress()
 	link += viewer.yaw.toFixed(2)+separator;
 	link += viewer.pitch.toFixed(2)+separator;
 	link += viewer.x.toFixed(2)+separator;
-	link += viewer.y.toFixed(2)+separator;
-	link += viewer.lastX.toFixed(2)+separator;
-	link += viewer.lastY.toFixed(2);
+	link += viewer.y.toFixed(2);
+	//link += viewer.lastX.toFixed(2)+separator;
+	//link += viewer.lastY.toFixed(2);
 	
 	window.location.hash = link;
 }
@@ -29,8 +29,8 @@ function ParseAddress()
 	viewer.pitch = parseFloat(params[2]);
 	viewer.x = parseFloat(params[3]);
 	viewer.y = parseFloat(params[4]);
-	viewer.lastX = parseFloat(params[5]);
-	viewer.lastY = parseFloat(params[6]);
+	//viewer.lastX = parseFloat(params[5]);
+	//viewer.lastY = parseFloat(params[6]);
 	
 	$("#testConsole").html(viewer.ToString());
 }

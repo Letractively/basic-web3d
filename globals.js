@@ -11,11 +11,13 @@ var renderOnRequest = true;		//on/off render on request
 var renderRequest = true;		//true if new frame have to be rendered (something changed in the scene)
 
 //--------------------STATISTICS VARIABLES---------------------//
+var totalRenderedFrames = 0;
 var lastFrameRenderTime;
 var verticesCount;
 var trianglesCount;
 
 //--------------------UI ELEMENTS CONSTANTS---------------------//
+var div_fps = "fps";
 var div_time = "time";
 var div_verticesCount = "verts";
 var div_trianglesCount = "triangles";

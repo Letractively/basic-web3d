@@ -1,4 +1,8 @@
-﻿function LoadScene()
+﻿
+var renderOnRequest = true;	//włącza / wyłącza tryb renderingu na żądanie
+var renderRequest = true;		//flaga mówiąca czy należy ponownie wyrenderować scenę
+
+function LoadScene()
 {
 	var canvasName = "canvas";
 	var sceneName = CreateScene(canvasName);
@@ -9,23 +13,37 @@
 	
 	viewer = new Viewer(scene);
 	
-	UpdateModelInfo();
 	InitEvents();
 	OnDeepLinkChange(null);
 	
 	renderedFrames = 0;
 	totalRenderTime = 0;
-	setInterval("UpdateFPS()", 1000);
+	setInterval("UpdateFPS()", 10000);
 	
 	scene.start({
 		idleFunc: function() 
 		{
+			var start = new Date();
 			if(!renderOnRequest)
 				viewer.Update();
 			else if(renderRequest)
 				viewer.Update();
+			var stop = new Date();
+			
+			$("#time").html(stop - start);
 		}
 	});
+	var x = 10;
+	var y = 10;
+	var z = 10;
+	
+	for(var i = 0; i < x; i++)
+		for(var j = 0; j < y; j++)
+			for(var k = 0; k < z; k++)
+			{
+				AddModel(i, j, k);
+			}
+	UpdateModelInfo();
 }
 
 function UpdateScene()
@@ -34,7 +52,6 @@ function UpdateScene()
 	root.add("node", myModel);
 	$("#labelInfo").css("visibility", "hidden");
 	SetAddress();
-	
 	UpdateModelInfo();
 }
 
@@ -105,6 +122,7 @@ function Viewer(scene)
 		this.cameraNode.set("look", {x:this.x, y:this.y, z:0});
 		
 		renderedFrames++;
+		totalRenderedFrames++;
 		renderRequest = false;
 	}
 	
@@ -123,18 +141,5 @@ function Viewer(scene)
 		return text;
 	}
 }
-
-//--------------------------------STATISTICS------------------------//
-
-function UpdateFPS()
-{
-	document.getElementById("fps").innerHTML = renderedFrames;
-	$("#"+div_time).html(lastFrameRenderTime);
-	renderedFrames = 0;
-}
-
-
-
-
 
 

@@ -32,13 +32,13 @@
 						nodes: [
 							{
 								type: "renderer",
-										clearColor: { r: 0.3, g: 0.3, b: 0.6 },
+										clearColor: { r: 0.9, g: 0.9, b: 0.9 },
 										clear: {
 											depth : true,
 											color : true
 										},
 
-								nodes: [
+								nodes: [/*
 									{
 										type: "light",
 										mode:                   "dir",
@@ -50,7 +50,7 @@
 										mode:                   "dir",
 										color:                  { r: 0.8, g: 0.8, b: 0.8 },
 										dir:                    { x: 1.0, y: -1.0, z: -1.0 }
-									},
+									},*/
 									{
 										type: "rotate",
 										id: "pitch",
@@ -71,11 +71,64 @@
 														x: 1,
 														y: 1,
 														z: 1,
-
 														nodes: [
 															{
-																type: "geometry",
-																id: "geometryRoot"
+																type : 'node',
+																/*
+																type : 'shader',
+																id : 'myShader',
+																shaders : [
+																	//Vertex Shader
+																	{
+																		stage : 'fragment',
+																		code : [
+																			"uniform vec3 lightPosition;",
+																			"uniform vec3 skyColor;",
+																			"uniform vec3 groundColor;",
+																			
+																			"vec3 worldNormalPos;",
+																			"vec3 up = normalize(vec3(0.0, 1.0, 0.0));",
+																			
+																			"void worldNormal_fun(vec3 pos){",
+																			"	worldNormalPos = normalize(pos);",
+																			"}",
+																			
+																			"vec4 myPixelColorFunc(vec4 color) {",
+																			"	up = normalize(lightPosition);",
+																			"	float a = 0.5 * (1.0 + dot(up, worldNormalPos));",
+																			"	vec3 tmp = normalize(skyColor * a + (1.0 - a) * groundColor);",
+																			"	color.r *= tmp.x;",
+																			"	color.g *= tmp.y;",
+																			"	color.b *= tmp.z;",
+																			"   return color;",
+																			"}"
+																		],
+																		hooks : {
+																			worldNormal : "worldNormal_fun",
+																			pixelColor : "myPixelColorFunc",
+																		}
+																	}
+																],
+																params :{
+																	lightPosition : [0.0, 1.0, 0.0],
+																	skyColor : [0.6797, 0.7148, 0.7422],
+																	//groundColor : [0.4750, 0.5004, 0.5195],
+																	//skyColor : [1,0,0],
+																	groundColor : [0.2,0.2,0.2],
+																},*/
+																nodes : [	
+																	{
+																		type: "geometry",
+																		id: "geometryRoot",
+																		/*
+																		nodes: [
+																			{
+																				type: 'sphere'
+																			}
+																		]
+																		*/
+																	}
+																]
 															}
 														]
 													}
